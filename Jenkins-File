@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('SCM-Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/taakshakti/assessment-ca-test/new/main'
+                git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/taakshakti/assessment-ca-test.git'
             }
         }
 		stage('Maven-clean') {
