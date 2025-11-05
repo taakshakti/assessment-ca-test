@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+	tools {
+		maven 'mvn_home'
+	}
+    stages {
+        stage('SCM-Checkout') {
+            steps {
+                git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/taakshakti/assessment-ca-test/new/main'
+            }
+        }
+		stage('Maven-clean') {
+            steps {
+                sh 'mvn clean'
+            }
+        }
+        stage('Maven-build') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage('Maven-deploy') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+    }
+}
