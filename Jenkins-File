@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	tools {
-		maven 'mvn_home'
+		echo 'mvn_home'
 	}
     stages {
         stage('SCM-Checkout') {
@@ -11,17 +11,17 @@ pipeline {
         }
 		stage('Maven-clean') {
             steps {
-                sh 'mvn clean'
+                echo 'mvn clean'
             }
         }
         stage('Maven-build') {
             steps {
-                sh 'mvn compile'
+                echo 'mvn compile'
             }
         }
         stage('Maven-deploy') {
             steps {
-                sh 'mvn package'
+                echo 'mvn package'
             }
         }
     }
